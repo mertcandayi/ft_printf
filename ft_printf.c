@@ -35,7 +35,7 @@ static int ft_form(va_list args, char formtype)
     else if (formtype == '%')
         len += ft_putchar('%');
     else if (!formtype)
-        len += ft_putstr("(null)");
+        len += ft_putchar('\0');
     return (len);
 }
 

@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
-int ft_printf(const char *format, ...);
-int ft_putchar(int x);
-int ft_putstr(char *str);
-int ft_putnbr(long x);
-int ft_puthex(unsigned long x, int type);
-int ft_point(void *ptr);
+int	ft_printf(const char *format, ...);
+int	ft_putchar(int x);
+int	ft_putstr(char *str);
+int	ft_putnbr(long x);
+int	ft_puthex(unsigned long x, int type);
+int	ft_point(void *ptr);
 
 #endif

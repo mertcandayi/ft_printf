@@ -25,8 +25,7 @@ int ft_putstr(char *str)
     len = 0;
     if (!str)
     {
-        ft_putstr("(null)");
-        return (6);
+        return(write(1, "(null)", 6));
     }
     while (str[len])
         len += ft_putchar(str[len]);
@@ -40,21 +39,17 @@ int ft_putnbr(long x)
     len = 0;
     if (x == -2147483648)
     {
-        len += ft_putstr("-2147483648");
+        len = ft_putstr("-2147483648");
         return (len);
     }
     if (x < 0)
     {
-        ft_putchar('-');
-        x *= -1;
+        len += ft_putchar('-');
+        x = -x;
     }
     if (x >= 10)
-    {
-        ft_putnbr(x / 10);
-        ft_putnbr(x % 10);
-    }
-    else
-        len += ft_putchar(x + 48);
+        len += ft_putnbr(x / 10);
+    len += ft_putchar((x % 10) + 48);
     return (len);
 }
 

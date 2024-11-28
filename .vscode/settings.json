@@ -57,5 +57,8 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "notebook.defaultFormatter": null,
-  "gitlens.defaultDateLocale": ""
+  "gitlens.defaultDateLocale": "",
+  "files.associations": {
+    "ft_printf.h": "c"
+  }
 }

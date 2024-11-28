@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 #include <stdarg.h>
 
-static int ft_form(va_list args, char formtype)
+static int ft_form(va_list args, const char formtype)
 {
     int len;
 
@@ -29,13 +29,11 @@ static int ft_form(va_list args, char formtype)
     else if (formtype == 'u')
         len += ft_putnbr(va_arg(args, unsigned int));
     else if (formtype == 'x')
-        len += ft_puthex(va_arg(args, unsigned long), 0);
+        len += ft_puthex(va_arg(args, unsigned int), 0);
     else if (formtype == 'X')
-        len += ft_puthex(va_arg(args, unsigned long), 1);
+        len += ft_puthex(va_arg(args, unsigned int), 1);
     else if (formtype == '%')
         len += ft_putchar('%');
-    else if (!formtype)
-        len += ft_putchar('\0');
     return (len);
 }
 
@@ -52,6 +50,8 @@ int ft_printf(const char *format, ...)
     {
         if (format[i] == '%')
         {
+            if (!format[i + 1])
+                return(0);
             len += ft_form(args, format[i + 1]);
             i++;
         }
